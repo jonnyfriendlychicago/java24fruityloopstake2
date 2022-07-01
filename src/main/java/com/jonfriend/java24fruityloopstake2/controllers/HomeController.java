@@ -1,8 +1,8 @@
 //find/replace instances of 'java22displaydate' with trueName of project
-package com.jonfriend.java24fruityloopstake2;
+package com.jonfriend.java24fruityloopstake2.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.stereotype.Controller; 
 import org.springframework.ui.Model;
 //import org.springframework.web.bind.annotation.PathVariable;
@@ -10,10 +10,12 @@ import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
 import java.time.LocalDateTime; 
 import java.util.Date;
 import java.text.SimpleDateFormat; 
+import java.util.ArrayList; 
 
-//@RestController
+//import Item.java; 
+import com.jonfriend.java24fruityloopstake2.models.Item;
+
 @Controller
-
 
 public class HomeController {
 	@RequestMapping("/")
@@ -36,6 +38,15 @@ public class HomeController {
 		model.addAttribute("itemPrice", itemPrice); 
 		model.addAttribute("itemDescription", itemDescription); 
 		model.addAttribute("vendorName", vendorName); 
+		
+		ArrayList<Item> fruitsArrList = new ArrayList<Item>();
+		fruitsArrList.add(new Item("Kiwi", 1.5));
+		fruitsArrList.add(new Item("Mango", 2.0));
+		fruitsArrList.add(new Item("Goji Berries", 4.0));
+		fruitsArrList.add(new Item("Guava", .75));
+		
+        model.addAttribute("fruitsFromHomeController", fruitsArrList);
+        
 		return "index.jsp"; 
 	}
 
@@ -86,6 +97,15 @@ public class HomeController {
 		return "time.jsp"; 
 	}
 	
+	@RequestMapping("/dojos")
+    public String dojosRoute(Model model) {
+        ArrayList<String> dojosArrList = new ArrayList<String>();
+        dojosArrList.add("Burbank");
+        dojosArrList.add("Chicago");
+        dojosArrList.add("Bellevue");
+        model.addAttribute("dojosFromMyController", dojosArrList);
+        return "dojos.jsp";
+    }
 	
 	//	@RequestMapping("")
 //	public String hello() {

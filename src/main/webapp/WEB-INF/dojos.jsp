@@ -21,29 +21,29 @@
 
 </head>
 <body>
-	<h1>Fruity Loops Home Page</h1>
+	<h1>Dojo Page</h1>
+	<a href= "/">Home</a>
 	<a href= "/date">Date Template</a>
 	<a href= "/time">Time Template</a>
-	<a href= "/dojos">Dojos</a>
 	
-	<h2>Fruits</h2>
+	<h2>Dojo Locations</h2>
+	<c:forEach var="oneDojo" items="${dojosFromMyController}">
+        <p><c:out value="${oneDojo}"></c:out></p>
+    </c:forEach>
 	
-	${fruitsFromHomeController}
 	
-	<c:forEach var="fruit" items="${fruitsFromHomeController}">
-        <p> ${fruit.name} - $${fruit.price}</p>
-    </c:forEach>  
 	
-	<%-- <h3> Today's date is: <%= new Date() %></h3> --%>
 	
-	<p>Content from Hopper Assignment, keeping around for future ref</p>
-	<p>Customer Name: <c:out value="${customerName}"></c:out></p>
+	<%-- <h3> Today's date is: <%= new Date() %></h3>
 	
-	<p>Item Name: <c:out value="${itemName }"></c:out></p>
+	<h1>Content from Hopper Assignment, keeping around for future ref</h1>
+	<h2>Customer Name: <c:out value="${customerName}"></c:out></h2>
 	
-	<p>Item Price: $<c:out value="${itemPrice }"></c:out></p>
-	<p>Item Description: <c:out value="${itemDescription }"></c:out></p>
-	<p>Vendor Name: <c:out value="${vendorName }"></c:out></p>
+	<h2>Item Name: <c:out value="${itemName }"></c:out></h2>
+	
+	<h2>Item Price: $<c:out value="${itemPrice }"></c:out></h2>
+	<h2>Item Description: <c:out value="${itemDescription }"></c:out></h2>
+	<h2>Vendor Name: <c:out value="${vendorName }"></c:out></h2>
 	
 	
 	<%-- <% for (int i = 0; i < 5; i++) { %>
